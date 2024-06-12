@@ -64,3 +64,5 @@ class Sale(Base):
         return f'{self.id} - (StockID: {self.id_stock}, Price - {self.price}, Count - {self.count}, DateSale - {self.date_sale})'
 
 
+def create_tables(engine):
+    Base.metadata.create_all(engine)
