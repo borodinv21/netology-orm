@@ -3,7 +3,8 @@ import sqlalchemy
 import json
 
 from dotenv import load_dotenv
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import select
+from sqlalchemy.orm import sessionmaker, aliased
 from models import create_tables, Publisher, Stock, Shop, Sale, Book
 
 load_dotenv()
@@ -36,11 +37,6 @@ if __name__ == '__main__':
     #     session.add(model(id=record.get('pk'), **record.get('fields')))
     #
     # session.commit()
-
-    publisher = input('Введите имя автора книги: ')
-
-    answ = session.query(Publisher.name == publisher, Book, Stock, Shop, Sale)
-    print(answ)
 
     session.close()
 
